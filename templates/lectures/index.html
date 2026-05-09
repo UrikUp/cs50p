@@ -1,0 +1,5 @@
+{% for lecture in lectures %}
+{{ lecture.title }}
+
+<a href={% url "week" lecture.order %}>{{lecture.title}}</a>
+{% endfor %}

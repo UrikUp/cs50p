@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% load markdown_extras %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'markdown.css' %}">
+{% endblock %}
+
+{% block content %}
+{{ note.text|markdown|safe }}
+{% endblock %}

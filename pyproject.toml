@@ -1,0 +1,14 @@
+[project]
+name = "to-teach"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "django>=6.0.4",
+    "markdown>=3.10.2",
+    "pygments>=2.20.0",
+]
+[tool.ruff]
+# Allow lines to be as long as 120.
+line-length = 120
