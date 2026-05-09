@@ -1,0 +1,42 @@
+<!-- MOBILE NAVBAR -->
+<nav class="navbar navbar-dark bg-dark d-lg-none">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      My App
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+      aria-controls="sidebar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="d-flex">
+  <!-- SIDEBAR -->
+  <div id="sidebar" class="offcanvas-lg offcanvas-start bg-dark text-white sidebar flex-shrink-0" tabindex="-1">
+    <!-- HEADER -->
+    <div class="offcanvas-header border-bottom border-secondary">
+      <h5 class="offcanvas-title">
+        My App
+      </h5>
+      <!-- CLOSE BUTTON ONLY ON MOBILE -->
+      <button type="button" class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="offcanvas-body p-0">
+      <ul class="nav flex-column">
+        {% for lecture in sidebar_pages %}
+        <a class="nav-ling text-white px-4 py-3" href={% url "week" lecture.order %}>{{lecture.title}}</a>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow-1 p-4">
+  </main>
+
+</div>

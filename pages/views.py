@@ -5,10 +5,8 @@ from pages.models import Lecture, Note, Pset
 # Create your views here.
 
 
-# all
-def lectures(request):
-    lectures = Lecture.objects.all()
-    return render(request, "lectures/index.html", {"lectures": lectures})
+def home(request):
+    return render(request, "home.html")
 
 
 # one

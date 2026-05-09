@@ -1,17 +1,107 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %} URIK {% endblock %}</title>
+  <title>{% block title %}cs50 adaptation to russian{% endblock %}</title>
   {% block extra_head %}{% endblock %}
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
 </head>
+<style>
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  main {
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  @media (min-width: 992px) {
+    .offcanvas-lg {
+      position: static;
+      transform: none !important;
+      visibility: visible !important;
+      border-right: 1px solid #444;
+    }
+
+    .offcanvas-backdrop {
+      display: none;
+    }
+  }
+</style>
+
 
 <body>
-  {% block content %}
-  {% endblock %}
+  <!-- MOBILE NAVBAR -->
+  <nav class="navbar navbar-dark bg-dark d-lg-none">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        My App
+      </a>
 
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+        aria-controls="sidebar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="d-flex vh-100 overflow-hidden">
+    <!-- SIDEBAR -->
+    <div id="sidebar" class="offcanvas-lg offcanvas-start bg-dark text-white sidebar flex-shrink-0" tabindex="-1">
+      <!-- HEADER -->
+      <div class="offcanvas-header border-bottom border-secondary">
+        <h5 class="offcanvas-title">
+          My App
+        </h5>
+        <!-- CLOSE BUTTON ONLY ON MOBILE -->
+        <button type="button" class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas"
+          aria-label="Close"></button>
+      </div>
+
+      <!-- NAVIGATION -->
+      <div class="offcanvas-body p-0">
+        <ul class="nav flex-column">
+          {% for lecture in sidebar_pages %}
+          <a class="nav-link link-underline-opacity-0 text-white px-4 py-3" href={% url "week" lecture.order %}>
+            <span class="text-secondary">
+              {{ forloop.counter0 }}.
+            </span>
+
+            {{lecture.title}}</a>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow-1 p-4">
+      {% block content %}
+      {% endblock %}
+    </main>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
