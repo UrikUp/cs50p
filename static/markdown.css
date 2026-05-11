@@ -40,13 +40,13 @@
 /* Comment.PreprocFile */
 .codehilite .c1 {
   color: #3D7B7B;
-  font-style: italic
+  /* font-style: italic */
 }
 
 /* Comment.Single */
 .codehilite .cs {
   color: #3D7B7B;
-  font-style: italic
+  /* font-style: italic */
 }
 
 /* Comment.Special */

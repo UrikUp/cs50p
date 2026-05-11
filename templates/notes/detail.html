@@ -3,8 +3,11 @@
 {% load markdown_extras %}
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'markdown.css' %}">
+<link rel="stylesheet" href="{% static 'base.css' %}">
 {% endblock %}
-
+{%block title %}
+Lecture {{ note.lecture.order }} - CS50P
+{% endblock %}
 {% block content %}
-{{ note.text|markdown|safe }}
+<div class="markdown-body"> {{ note.text|markdown|safe }} </div>
 {% endblock %}

@@ -1,3 +1,24 @@
-{{ lecture.title }}
-{% url "note" lecture.order %}
-{% url "psets" }
+{% extends "base.html" %}
+{% load static %}
+{% block extra_head %}
+
+<link rel="stylesheet" href="{% static 'base.css' %}">
+{% endblock %}
+{% block title %}
+Week {{ lecture.order }} {{lecture.title}} - CS50P
+{% endblock %}
+{% block content %}
+
+<h1>Неделя {{lecture.order}} <span class="text-secondary fw-normal fs-2">{{ lecture.title }}</span></h1>
+<h2>This is how h2 looks like</h2>
+<h3>{% url 'note' lecture.order %}</h3>
+<h3>Лекция: </h3>
+<details open>
+  <summary>Lecture</summary>
+  <ul>
+    <li>First item</li>
+  </ul>
+
+</details>
+<detail>
+  {% endblock %}

@@ -1,3 +1,5 @@
 - [x] Makes all routes to work
 - [x] Render Markdown.
 - - Problems with rendering code snippets
+- [] Every page load loads sidebar too. Only change content
+- [] Translate class "markdown-body"  to "content". Yep, this is content styling, hell ya
