@@ -1,15 +1,8 @@
 .markdown-body {
   /* max-width: 75ch; */
 
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-  font-size: 1rem;
-  line-height: 1.4;
+  /* font-size: 1rem; */
+  /* line-height: 1.4; */
 
   color: var(--bs-body-color);
 }
@@ -25,38 +18,25 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  font-weight: 600;
 
-  line-height: 1.2;
 
-  /* margin-top: 1rem; */
+  margin-top: 1rem;
   margin-bottom: 1rem;
   padding-top: 1rem;
 }
 
 .markdown-body h1 {
-  font-size: 2.25rem;
-
   padding-bottom: .5rem;
   border-bottom: 3px solid var(--bs-border-color);
 }
 
 .markdown-body h2 {
-  font-size: 1.75rem;
-
-  padding-bottom: .5rem;
-
-  /* padding-bottom: 0.5rem; */
+  padding-bottom: 0.5rem;
   border-bottom: 3px solid var(--bs-border-color);
 }
 
 .markdown-body h3 {
-  font-size: 1.4rem;
   padding-top: 1rem;
-}
-
-.markdown-body h4 {
-  font-size: 1.2rem;
 }
 
 
@@ -94,11 +74,47 @@
   margin-bottom: 0rem;
 }
 
-.markdown-body li+li {
+.markdown-body .notes-text li {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
+/* remove margins between links */
+.markdown-body .toc li {
+  margin: 0rem 0rem;
+
+}
+
+
+/* junk is hereeee */
+
+.markdown-body .weeks-text ul,
+.markdown-body .weeks-text ol {
+  padding-left: 1rem;
+  margin-top: 0.25rem;
+}
+
+.markdown-body .weeks-text details ul {
+  padding-left: 3rem;
+  margin-top: 0.25rem;
+}
+
+.markdown-body .psets-text ul,
+.markdown-body .psets-text ol {
+  padding-left: 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-body .psets-text li {
+  margin-top: 0.25rem;
+  margin-left: 1rem;
+}
+
+.markdown-body .psets-text p {
+  margin-left: 0rem;
+  margin-bottom: 1rem;
+}
 
 /* =========================================================
    INLINE CODE
@@ -133,6 +149,27 @@
   padding: .5rem 1rem .5rem .0rem;
 
   margin-left: 2rem;
+  margin-bottom: .75rem;
+  margin-top: .75rem;
+
+  width: calc(100% - 2rem);
+
+  overflow-x: auto;
+
+  line-height: 1.2;
+
+  background-color: #f8f9fa;
+
+  border: 1px solid var(--bs-border-color);
+
+  border-radius: 3px;
+}
+
+/* for pset */
+.markdown-body .psets-text pre {
+  padding: 8px 12px;
+
+  margin-left: 0rem;
   margin-bottom: .75rem;
   margin-top: .75rem;
 

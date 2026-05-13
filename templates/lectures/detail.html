@@ -10,15 +10,17 @@ Week {{ lecture.order }} {{lecture.title}} - CS50P
 {% block content %}
 
 <h1>Неделя {{lecture.order}} <span class="text-secondary fw-normal fs-2">{{ lecture.title }}</span></h1>
-<h2>This is how h2 looks like</h2>
-<h3>{% url 'note' lecture.order %}</h3>
-<h3>Лекция: </h3>
-<details open>
-  <summary>Lecture</summary>
+<div class="weeks-text">
+  <details open>
+    <summary>Лекция</summary>
+    <ul>
+      <li><a href={% url 'note' lecture.order %}>Заметки</a></li>
+    </ul>
+  </details>
   <ul>
-    <li>First item</li>
+    <li>
+      <a href="{% url 'psets' lecture.order %}">Проблемы {{ lecture.order }}</a>
+    </li>
   </ul>
-
-</details>
-<detail>
-  {% endblock %}
+</div>
+{% endblock %}

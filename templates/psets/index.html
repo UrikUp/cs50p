@@ -1,3 +1,34 @@
-{% for pset in psets %}
-{{ pset.title }}
-{% endfor %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Проблемы {{ psets.first.order }}</h1>
+<h2>Действия</h2>
+{% if is_first %}
+<ol class="psets-text">
+  <li>Заполни <a href="https://forms.cs50.io/27a35e60-490a-4e42-8574-6b55154ae760">эту форму</a>.</li>
+  <li>Перейди по <a href="https://submit.cs50.io/invites/579861a2825849178cd11315c055bc49">этой ссылке</a>, войди в
+    систему через аккаунт GitHub и нажми <strong>Authorize CS50</strong>.</li>
+  <li>Поставь галочку, подтверждающую, что ты хочешь предоставить сотрудникам курса доступ к своей работе, и нажми
+    <strong>Join course</strong>.
+  </li>
+  <li>Войди на <a href="https://cs50.dev/">cs50.dev</a> — это облачная версия Visual Studio Code (VS Code), которая
+    предоставляет тебе личное «кодовое пространство» со всем необходимым для курса, установленным заранее. Не нужно
+    скачивать и устанавливать VS Code или Python на собственный Mac или ПК! Если ты ещё не знаком с инструментом,
+    обязательно посмотри <a href="https://www.youtube.com/watch?v=Oi1lvJS4uS8">Visual Studio Code for CS50 Short</a> (на
+    английском) для полного ознакомления.</li>
+  <li>После загрузки кодового пространства закрой все вкладки <strong>Welcome</strong>, которые могли открыться по
+    умолчанию.</li>
+  <li>Выполни <code class="language-plaintext highlighter-rouge">update50</code> в терминале кодового пространства,
+    чтобы убедиться, что оно обновлено; если появится запрос, нажми <strong>Rebuild now</strong>.</li>
+  <li>Сдай все задачи, перечисленные ниже:</li>
+  <ul>
+    {% for pset in psets %}
+    <li><a href="{% url 'pset' pset.lecture.order pset.slug %}">{{ pset.title }}</a></li>
+    {% endfor %}
+  </ul>
+</ol>
+{% else %}
+
+{% endif %}
+{% endblock %}

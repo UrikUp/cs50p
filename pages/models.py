@@ -29,8 +29,21 @@ class Pset(models.Model):
     lecture = models.ForeignKey(Lecture, on_delete=models.CASCADE, related_name="psets")
     order = models.PositiveSmallIntegerField()
     title = models.CharField(max_length=200)
-    text = models.TextField(blank=True)
     slug = models.SlugField(blank=True)
+
+    # use md
+    description = models.TextField(blank=True)
+    hint = models.TextField(blank=True)
+    test = models.TextField(blank=True)
+
+    # optional. If there is more descriptions
+    test_etc = models.TextField(blank=True)
+    before_start = models.TextField(blank=True)
+    before_end = models.TextField(blank=True)
+
+    check_url = models.CharField(max_length=50, blank=True)
+    submit = models.CharField(max_length=50, blank=True)
+    ascii = models.CharField(max_length=50, blank=True)
 
     class Meta:
         constraints = [models.UniqueConstraint(fields=["lecture", "order"], name="unique_pset_order_per_lecture")]

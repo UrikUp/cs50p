@@ -1,5 +1,7 @@
 - [x] Makes all routes to work
 - [x] Render Markdown.
 - - Problems with rendering code snippets
-- [] Every page load loads sidebar too. Only change content
+- [x] Every page load loads sidebar too. Only change content
 - [] Translate class "markdown-body"  to "content". Yep, this is content styling, hell ya
+- [] The close button in mobile view just dont work
+- [] add 1 rem padding from sidebar in pc mode

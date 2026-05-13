@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% load markdown_extras %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'markdown.css' %}">
+{% endblock %}
+{%block title %}
+Lecture {{ pset.lecture.order }} - CS50P
+{% endblock %}
+{% block content %}
+<h1>{{pset.title}} </h1>
+<div class="psets-text">
+  <div> {{ pset.description|markdown|safe }} </div>
+  <details>
+    <summary>Подсказки</summary>
+    {{ pset.hint|markdown|safe }}
+
+  </details>
+  <h1>Перед началом</h1>
+
+  {% if pset.begin_start %}
+  {{ pset.begin_start|markdown|safe }}
+  {% endif %}
+
+  Выполни команду <code>cd</code> без аргументов в терминале. Приглашение должно выглядеть примерно так:
+
+  <pre>$</pre>
+
+  Затем выполни:
+
+  <pre>mkdir {{ pset.slug }}</pre>
+
+  чтобы создать папку <code>{{ pset.slug }}</code> в своём рабочем пространстве.
+
+  Перейди в неё:
+
+  <pre>cd {{ pset.slug }}</pre>
+
+  Теперь приглашение терминала должно выглядеть как <code>{{ pset.slug }}/ $</code>. Создай файл программы:
+
+  <pre>code {{ pset.slug }}</pre>
+
+  {% if pset.begin_end %}
+  {{ pset.begin_start|markdown|safe }}
+  {% endif %}
+
+  <h1>Демо</h1>
+  <script src={% static 'iframe_resizer' %}></script>
+  <script async="" data-autoplay="1" data-cols="80" data-loop="1" data-rows="12" id="asciicast-{{pset.ascii}}"
+    src="https://asciinema.org/a/{{ pset.ascii }}.js"></script>
+
+  <h1>Как тестировать</h1>
+
+  <p>Вот как проверить код вручную. В терминале с вводимой <code>{{ pset.slug }}/ $</code>:</p>
+
+  {{ pset.test|markdown|safe }}
+  {{ pset.test_etc|markdown|safe }}
+  <p>Для автоматической проверки с помощью <code>check50</code> выполни:</p>
+
+  <pre>{{ pset.check_url }}</pre>
+
+  <p>Зелёные смайлики означают, что тест пройден. Красные — что вывод программы не совпадает с ожидаемым. Перейди по
+    ссылке, которую выводит <code>check50</code>, чтобы увидеть входные данные, ожидаемый и фактический вывод.</p>
+
+  <h1>Как сдать </h1>
+  <p>В терминале, выполни для cдачи: </p>
+  <pre>{{ pset.submit }}</pre>
+  {% endblock %}
