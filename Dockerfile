@@ -12,7 +12,7 @@ ENV UV_COMPILE_BYTECODE=1 \
 
 WORKDIR /app
 
-# Copy dependency files first for layer caching
+# Copy dependency files first for Docker layer caching
 COPY pyproject.toml uv.lock ./
 
 # Install dependencies
@@ -22,7 +22,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Copy application source
 COPY . .
 
-# Install project
+# Install project itself
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked
 
@@ -36,20 +36,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PATH="/app/.venv/bin:$PATH"
 
-# Create non-root user
-RUN groupadd --system --gid 999 nonroot \
- && useradd --system --gid 999 --uid 999 \
-    --create-home nonroot
-
 WORKDIR /app
 
-# Copy app from builder
-COPY --from=builder --chown=nonroot:nonroot /app /app
+# Copy built application
+COPY --from=builder /app /app
 
-# Fix permissions
-RUN chmod +x /app/entrypoint.sh \
- && chown -R nonroot:nonroot /app
-
-USER nonroot
+# Make entrypoint executable
+RUN chmod +x /app/entrypoint.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]
