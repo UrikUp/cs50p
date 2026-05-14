@@ -49,8 +49,11 @@ COPY --from=builder --chown=nonroot:nonroot /app /app
 
 # Make entrypoint executable
 RUN chmod +x /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh \
+    && chown -R nonroot:nonroot /app
 
 USER nonroot
+
 ENTRYPOINT ["/app/entrypoint.sh"]
 
 # Example FastAPI command
