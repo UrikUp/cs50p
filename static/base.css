@@ -1,9 +1,8 @@
+/* =========================================================
+   MARKDOWN BODY
+========================================================= */
+
 .markdown-body {
-  /* max-width: 75ch; */
-
-  /* font-size: 1rem; */
-  /* line-height: 1.4; */
-
   color: var(--bs-body-color);
 }
 
@@ -18,25 +17,15 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-
-
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding-top: 1rem;
 }
 
-.markdown-body h1 {
-  padding-bottom: .5rem;
-  border-bottom: 3px solid var(--bs-border-color);
-}
-
+.markdown-body h1,
 .markdown-body h2 {
   padding-bottom: 0.5rem;
   border-bottom: 3px solid var(--bs-border-color);
-}
-
-.markdown-body h3 {
-  padding-top: 1rem;
 }
 
 
@@ -44,8 +33,13 @@
    PARAGRAPHS
 ========================================================= */
 
-.markdown-body p {
-  margin-bottom: 0.5rem;
+.markdown-body .notes-text p,
+.markdown-body .psets-text p,
+.markdwon-body .weeks-text p {
+  margin-bottom: 1rem;
+}
+
+.markdown-body .notes-text p {
   margin-left: 2rem;
 }
 
@@ -56,7 +50,6 @@
 
 .markdown-body a {
   color: #a51c30;
-
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -70,8 +63,7 @@
 .markdown-body ul,
 .markdown-body ol {
   padding-left: 2rem;
-
-  margin-bottom: 0rem;
+  margin-bottom: 0;
 }
 
 .markdown-body .notes-text li {
@@ -79,64 +71,44 @@
   margin-bottom: 0.5rem;
 }
 
-/* remove margins between links */
 .markdown-body .toc li {
-  margin: 0rem 0rem;
-
+  margin: 0;
 }
 
-
-/* junk is hereeee */
-
 .markdown-body .weeks-text ul,
-.markdown-body .weeks-text ol {
+.markdown-body .weeks-text ol,
+.markdown-body .psets-text ul,
+.markdown-body .psets-text ol {
   padding-left: 1rem;
   margin-top: 0.25rem;
 }
 
 .markdown-body .weeks-text details ul {
   padding-left: 3rem;
-  margin-top: 0.25rem;
 }
 
-.markdown-body .psets-text ul,
-.markdown-body .psets-text ol {
-  padding-left: 1rem;
-  margin-top: 0.25rem;
+.markdown-body .psets-text ul {
   margin-bottom: 1rem;
 }
 
 .markdown-body .psets-text li {
   margin-top: 0.25rem;
+  margin-left: 0.25rem;
   margin-left: 1rem;
 }
 
-.markdown-body .psets-text p {
-  margin-left: 0rem;
-  margin-bottom: 1rem;
-}
 
 /* =========================================================
    INLINE CODE
 ========================================================= */
 
 .markdown-body code {
-  font-family:
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    monospace;
-
-  font-size: .875em;
-
-  padding: .12rem .35rem;
-
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875em;
+  padding: 0.12rem 0.35rem;
   color: #c7254e;
-
   background-color: #f8f9fa;
-
   border: 1px solid var(--bs-border-color);
-
   border-radius: 4px;
 }
 
@@ -146,59 +118,28 @@
 ========================================================= */
 
 .markdown-body pre {
-  padding: .5rem 1rem .5rem .0rem;
-
-  margin-left: 2rem;
-  margin-bottom: .75rem;
-  margin-top: .75rem;
-
+  padding: 0.5rem 1rem 0.5rem 0;
+  margin: 0.75rem 0 0.75rem 2rem;
   width: calc(100% - 2rem);
-
   overflow-x: auto;
-
   line-height: 1.2;
-
   background-color: #f8f9fa;
-
   border: 1px solid var(--bs-border-color);
-
   border-radius: 3px;
 }
 
-/* for pset */
 .markdown-body .psets-text pre {
   padding: 8px 12px;
-
-  margin-left: 0rem;
-  margin-bottom: .75rem;
-  margin-top: .75rem;
-
+  margin-left: 0;
   width: calc(100% - 2rem);
-
-  overflow-x: auto;
-
-  line-height: 1.2;
-
-  background-color: #f8f9fa;
-
-  border: 1px solid var(--bs-border-color);
-
-  border-radius: 3px;
 }
-
-/* Remove inline-code styling inside code blocks */
 
 .markdown-body pre code {
   padding: 0;
-
   border: none;
-
   background: transparent;
-
   color: inherit;
-
-  font-size: .875rem;
-
+  font-size: 0.875rem;
   line-height: inherit;
 }
 
@@ -209,11 +150,8 @@
 
 .markdown-body blockquote {
   padding-left: 1rem;
-
   margin-bottom: 1rem;
-
   color: var(--bs-secondary-color);
-
   border-left: 4px solid var(--bs-border-color);
 }
 
@@ -224,9 +162,7 @@
 
 .markdown-body img {
   max-width: 100%;
-
   height: auto;
-
   border-radius: 3px;
 }
 
@@ -237,16 +173,13 @@
 
 .markdown-body table {
   width: 100%;
-
   margin-bottom: 1rem;
-
   border-collapse: collapse;
 }
 
 .markdown-body th,
 .markdown-body td {
-  padding: .75rem;
-
+  padding: 0.75rem;
   border: 1px solid var(--bs-border-color);
 }
 

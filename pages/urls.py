@@ -9,4 +9,5 @@ urlpatterns = [
     # one
     path("psets/<int:lecture>/<slug:slug>/", views.pset, name="pset"),
     path("notes/<int:lecture>/", views.note, name="note"),
+    path("sorry/", views.not_ready, name="not_ready"),
 ]

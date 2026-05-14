@@ -1,10 +1,10 @@
 from django.db import models
 
 
-# Collects all in one
 class Lecture(models.Model):
     title = models.CharField(max_length=200)
     youtube = models.URLField(null=True, blank=True)
+    topics = models.TextField(null=True)
     order = models.PositiveSmallIntegerField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True)

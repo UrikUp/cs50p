@@ -37,3 +37,7 @@ def pset(request, lecture, slug):
     lecture = get_object_or_404(Lecture, order=lecture)
     pset = get_object_or_404(Pset, lecture=lecture, slug=slug)
     return render(request, "psets/detail.html", {"pset": pset})
+
+
+def not_ready(request):
+    return render(request, "not_ready.html")

@@ -36,18 +36,23 @@ Lecture {{ pset.lecture.order }} - CS50P
 
   <pre>cd {{ pset.slug }}</pre>
 
-  Теперь приглашение терминала должно выглядеть как <code>{{ pset.slug }}/ $</code>. Создай файл программы:
+  Теперь приглашение терминала должно выглядеть как <code>{{ pset.slug }}/ $</code>. Выполни:
 
   <pre>code {{ pset.slug }}</pre>
 
+  <p>Чтобы создать файл <code>{{ pset.slug }}.py</code>, где пишешь свою программу.</p>
   {% if pset.begin_end %}
   {{ pset.begin_start|markdown|safe }}
   {% endif %}
 
   <h1>Демо</h1>
+  {% if pset.ascii %}
   <script src={% static 'iframe_resizer' %}></script>
   <script async="" data-autoplay="1" data-cols="80" data-loop="1" data-rows="12" id="asciicast-{{pset.ascii}}"
     src="https://asciinema.org/a/{{ pset.ascii }}.js"></script>
+  {% else %}
+  <p class="text-danger">Демо не найдено</p>
+  {% endif %}
 
   <h1>Как тестировать</h1>
 

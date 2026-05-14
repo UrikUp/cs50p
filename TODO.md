@@ -2,6 +2,7 @@
 - [x] Render Markdown.
 - - Problems with rendering code snippets
 - [x] Every page load loads sidebar too. Only change content
+- [x] The close button in mobile view just dont work
+- [x] add 1 rem padding from sidebar in pc mode
 - [] Translate class "markdown-body"  to "content". Yep, this is content styling, hell ya
-- [] The close button in mobile view just dont work
-- [] add 1 rem padding from sidebar in pc mode
+- [] psets/index -> finish the "if" logic
