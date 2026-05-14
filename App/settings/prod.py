@@ -4,6 +4,8 @@ import os
 
 DEBUG = False
 
+ALLOWED_HOSTS = ["urik.qzz.io"]
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DATABASES = {
