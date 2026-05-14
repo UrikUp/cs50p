@@ -12,18 +12,17 @@ ENV UV_COMPILE_BYTECODE=1 \
 
 WORKDIR /app
 
-# Copy ONLY dependency files first
-# This maximizes Docker layer caching
+# Copy dependency files first for layer caching
 COPY pyproject.toml uv.lock ./
 
-# Install dependencies separately
+# Install dependencies
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-install-project
 
-# Copy application source later
+# Copy application source
 COPY . .
 
-# Install project itself
+# Install project
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked
 
@@ -44,17 +43,13 @@ RUN groupadd --system --gid 999 nonroot \
 
 WORKDIR /app
 
-# Copy built app from builder
+# Copy app from builder
 COPY --from=builder --chown=nonroot:nonroot /app /app
 
-# Make entrypoint executable
-RUN chmod +x /app/entrypoint.sh
+# Fix permissions
 RUN chmod +x /app/entrypoint.sh \
-    && chown -R nonroot:nonroot /app
+ && chown -R nonroot:nonroot /app
 
 USER nonroot
 
 ENTRYPOINT ["/app/entrypoint.sh"]
-
-# Example FastAPI command
-# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
