@@ -1,3 +1,4 @@
 from .base import *
 
 DEBUG = True
+SECRET_KEY = "SOMESECRRTKEY1234134123412"

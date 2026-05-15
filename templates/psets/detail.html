@@ -18,14 +18,15 @@ Lecture {{ pset.lecture.order }} - CS50P
   </details>
   <h1>Перед началом</h1>
 
-  {% if pset.begin_start %}
-  {{ pset.begin_start|markdown|safe }}
-  {% endif %}
+  {% if pset.before_start %}
+  {{ pset.before_start|markdown|safe }}
+  {% else %}
 
   Выполни команду <code>cd</code> без аргументов в терминале. Приглашение должно выглядеть примерно так:
 
   <pre>$</pre>
 
+  {% endif %}
   Затем выполни:
 
   <pre>mkdir {{ pset.slug }}</pre>
@@ -41,8 +42,8 @@ Lecture {{ pset.lecture.order }} - CS50P
   <pre>code {{ pset.slug }}</pre>
 
   <p>Чтобы создать файл <code>{{ pset.slug }}.py</code>, где пишешь свою программу.</p>
-  {% if pset.begin_end %}
-  {{ pset.begin_start|markdown|safe }}
+  {% if pset.before_end %}
+  {{ pset.before_start|markdown|safe }}
   {% endif %}
 
   <h1>Демо</h1>
