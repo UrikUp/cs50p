@@ -32,6 +32,8 @@ class Pset(models.Model):
     slug = models.SlugField(blank=True)
 
     # use md
+    video = models.TextField(blank=True)
+    cite = models.TextField(blank=True)
     description = models.TextField(blank=True)
     hint = models.TextField(blank=True)
     test = models.TextField(blank=True)
@@ -40,6 +42,7 @@ class Pset(models.Model):
     test_etc = models.TextField(blank=True)
     before_start = models.TextField(blank=True)
     before_end = models.TextField(blank=True)
+    demo_start = models.TextField(blank=True)
 
     check_url = models.CharField(max_length=50, blank=True)
     submit = models.CharField(max_length=50, blank=True)

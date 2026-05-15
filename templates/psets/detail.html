@@ -10,10 +10,20 @@ Lecture {{ pset.lecture.order }} - CS50P
 {% block content %}
 <h1>{{pset.title}} </h1>
 <div class="psets-text">
+  {% if pset.cite %}
+  <blockquote>
+    {{ pset.cite|safe }}
+  </blockquote>
+  {% endif %}
+  {% if pset.video %}
+  {{pset.video|safe}}
+
+  {% endif %}
   <div> {{ pset.description|markdown|safe }} </div>
   <details>
     <summary>Подсказки</summary>
     {{ pset.hint|markdown|safe }}
+
 
   </details>
   <h1>Перед началом</h1>
@@ -22,7 +32,11 @@ Lecture {{ pset.lecture.order }} - CS50P
   {{ pset.before_start|markdown|safe }}
   {% else %}
 
-  Выполни команду <code>cd</code> без аргументов в терминале. Приглашение должно выглядеть примерно так:
+  <!-- Выполни команду <code>cd</code> без аргументов в терминале. Приглашение должно выглядеть примерно так: -->
+  Войди в <a href="cs50.dev">cs50.dev</a>, нажмите на окно терминала и выполните <code>cd</code> без аргументов. Ты
+  должен увидеть,
+  что
+  приглашение командной строки в окне терминала будет выглядеть примерно так, как показано ниже:
 
   <pre>$</pre>
 
@@ -47,6 +61,9 @@ Lecture {{ pset.lecture.order }} - CS50P
   {% endif %}
 
   <h1>Демо</h1>
+  {% if pset.demo_start%}
+  {{ pset.demo_start|markdown|safe }}
+  {% endif %}
   {% if pset.ascii %}
   <script src={% static 'iframe_resizer' %}></script>
   <script async="" data-autoplay="1" data-cols="80" data-loop="1" data-rows="12" id="asciicast-{{pset.ascii}}"

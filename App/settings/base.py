@@ -119,3 +119,9 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+CSP_FRAME_SRC = (
+    "'self'",
+    "https://www.youtube.com",
+    "https://www.youtube-nocookie.com",
+)

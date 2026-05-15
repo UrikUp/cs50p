@@ -37,6 +37,7 @@
 .markdown-body .psets-text p,
 .markdwon-body .weeks-text p {
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .markdown-body .notes-text p {
