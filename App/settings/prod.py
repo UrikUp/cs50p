@@ -7,7 +7,7 @@ DEBUG = False
 ALLOWED_HOSTS = ["urik.qzz.io"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "urik.qzz.io",
+    "https://urik.qzz.io",
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
