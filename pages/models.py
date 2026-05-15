@@ -37,16 +37,13 @@ class Pset(models.Model):
     description = models.TextField(blank=True)
     hint = models.TextField(blank=True)
     test = models.TextField(blank=True)
+    ascii = models.CharField(max_length=50, blank=True)
 
     # optional. If there is more descriptions
     test_etc = models.TextField(blank=True)
     before_start = models.TextField(blank=True)
     before_end = models.TextField(blank=True)
     demo_start = models.TextField(blank=True)
-
-    check_url = models.CharField(max_length=50, blank=True)
-    submit = models.CharField(max_length=50, blank=True)
-    ascii = models.CharField(max_length=50, blank=True)
 
     class Meta:
         constraints = [models.UniqueConstraint(fields=["lecture", "order"], name="unique_pset_order_per_lecture")]

@@ -80,12 +80,12 @@ Lecture {{ pset.lecture.order }} - CS50P
   {{ pset.test_etc|markdown|safe }}
   <p>Для автоматической проверки с помощью <code>check50</code> выполни:</p>
 
-  <pre>{{ pset.check_url }}</pre>
+  <pre>check50 cs50/problems/2022/python/{{ pset.slug }}</pre>
 
   <p>Зелёные смайлики означают, что тест пройден. Красные — что вывод программы не совпадает с ожидаемым. Перейди по
     ссылке, которую выводит <code>check50</code>, чтобы увидеть входные данные, ожидаемый и фактический вывод.</p>
 
   <h1>Как сдать </h1>
   <p>В терминале, выполни для cдачи: </p>
-  <pre>{{ pset.submit }}</pre>
+  <pre>submit50 cs50/problems/2022/python/{{ pset.slug }}</pre>
   {% endblock %}
