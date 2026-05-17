@@ -27,7 +27,6 @@ def psets(request, lecture):
     lecture = get_object_or_404(Lecture, order=lecture)
     psets = Pset.objects.filter(lecture=lecture)
     is_first = True if lecture.order == 0 else False
-    print(psets)
     return render(request, "psets/index.html", {"psets": psets, "is_first": is_first})
 
 
