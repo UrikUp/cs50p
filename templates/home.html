@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load markdown_extras %}
 
 {% block content %}
 
@@ -11,6 +12,11 @@
   Распространяется под лицензией <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC
     BY-NC-SA 4.0</a>, некоммерческий проект.
 </p>
+
+{% for content in content %}
+<div>{{ content.text|markdown|safe }}</div>
+{% endfor %}
+
 
 
 

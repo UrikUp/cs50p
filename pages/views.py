@@ -1,12 +1,11 @@
 from django.shortcuts import get_object_or_404, render
 
-from pages.models import Lecture, Note, Pset
-
-# Create your views here.
+from pages.models import Lecture, Note, Pset, MainScreen
 
 
 def home(request):
-    return render(request, "home.html")
+    contents = MainScreen.objects.all()
+    return render(request, "home.html", {"content": contents})
 
 
 # one

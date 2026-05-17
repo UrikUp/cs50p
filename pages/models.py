@@ -1,3 +1,4 @@
+from django.db.models import TextField
 from django.db import models
 
 
@@ -51,3 +52,14 @@ class Pset(models.Model):
 
     def __str__(self):
         return f"{self.lecture.order}-{self.order}: {self.slug}"
+
+
+class MainScreen(models.Model):
+    text = models.TextField(blank=True)
+
+    class Meta:
+        verbose_name = "Main Screen"
+        verbose_name_plural = "Main Screen"
+
+    def __str__(self):
+        return f"{self.pk} - {self.text[:20]}"
